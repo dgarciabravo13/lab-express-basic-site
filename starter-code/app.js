@@ -50,16 +50,29 @@ const dogs = [
   }
 ];
 
-function selectRandom(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
-let perros = { dogs };
-let dogRandom = selectRandom(dogs);
-console.log(`perro random ${dogRandom}`);
+const selectRandom = array => array[Math.floor(Math.random() * array.length)];
+
+Array.prototype.removeItem = function(a) {
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] == a) {
+      this.splice(i, 1);
+      return;
+    }
+  }
+};
+
+const perros = [...dogs];
+const initialDog = selectRandom(perros);
+console.log(initialDog);
+perros.removeItem(initialDog);
+const finalDog = selectRandom(perros);
+console.log(perros);
+console.log(dogs);
 
 app.get("/", (req, res) => {
   res.render("index", {
-    dogRandom,
+    initialDog,
+    finalDog,
     Document: "INDEX",
     headers: "/static/images/Portada.jpg"
   });
