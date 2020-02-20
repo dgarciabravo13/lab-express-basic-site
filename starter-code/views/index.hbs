@@ -1,12 +1,12 @@
 {{> indexParts}}
-{{#each dogs}}
-{{#with this}}
+{{!-- {{#each dogRandom}} --}}
+{{!-- {{#with dogRandom}} --}}
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">{{owner}}</h5>
-    <p class="card-text">Propietari@ de: {{name}}</p>
-    <p class="card-text">Edad:{{age}} años</p>
+    <h5 class="card-title">{{dogRandom.owner}}</h5>
+    <p class="card-text">Propietari@ de: {{dogRandom.name}}</p>
+    <p class="card-text">Edad:{{dogRandom.age}} años</p>
   </div>
 </div>
-{{/with}}
-{{/each}}
+{{!-- {{/with}} --}}
+{{!-- {{/each}} --}}

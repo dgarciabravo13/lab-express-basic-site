@@ -50,9 +50,16 @@ const dogs = [
   }
 ];
 
+function selectRandom(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+let perros = { dogs };
+let dogRandom = selectRandom(dogs);
+console.log(`perro random ${dogRandom}`);
+
 app.get("/", (req, res) => {
   res.render("index", {
-    dogs,
+    dogRandom,
     Document: "INDEX",
     headers: "/static/images/Portada.jpg"
   });
